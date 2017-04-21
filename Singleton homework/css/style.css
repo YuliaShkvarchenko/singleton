@@ -10,6 +10,7 @@ body{
 	font-style: normal;
 	background: linear-gradient(to bottom right, #4677e9, #72d6f9);
 	color: #4b5f66;
+	padding:20px;
 }
 img{
 	width:100px;
@@ -43,3 +44,9 @@ a:hover{
 a:visited{
 	color: #4b5f66;
 }
+#camera{
+	clear:both;
+}
+#price{
+min-height: 130px;
+}  
