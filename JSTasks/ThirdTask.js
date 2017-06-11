@@ -1,5 +1,5 @@
 var martixMultiplication = function(a,b){
-    if(a.length!=b[0].length){
+    if(a.length !== b[0].length){
         console.log("Error. Operation is impossible");
         return;
     }
@@ -21,8 +21,8 @@ var showMatrix = function(a){
     var maskLength = 0;
     var result = "";
     for(let i = 0; i < a.length; i++){
-        var currentRowMaskLength = Math.max.apply(null, a[i].join(' ').split(' ').map(w => w.length)) + 1;
-        if(currentRowMaskLength>maskLength){
+        var currentRowMaskLength = Math.max.apply(null, a[i].map(w => w.toString().length)) + 1;
+        if(currentRowMaskLength > maskLength){
             maskLength = currentRowMaskLength;
         }
     }
@@ -32,7 +32,7 @@ var showMatrix = function(a){
             currentElementString = a[i][b].toString();
             result += currentElementString + " ".repeat((maskLength - currentElementString.length));
         }
-        result+="\n";
+        result += "\n";
     }
     console.log(result);
 };
