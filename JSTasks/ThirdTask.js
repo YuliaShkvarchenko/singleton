@@ -18,22 +18,26 @@ var martixMultiplication = function(a,b){
     return result;
 };
 var showMatrix = function(a){
-    var maskLength = 0;
-    var result = "";
-    for(let i = 0; i < a.length; i++){
-        var currentRowMaskLength = Math.max.apply(null, a[i].map(w => w.toString().length)) + 1;
-        if(currentRowMaskLength > maskLength){
-            maskLength = currentRowMaskLength;
-        }
-    }
-    for(let i = 0; i < a.length; i++){      
-        var currentElementString = "";
-        for (let b = 0; b < a[i].length; b++){
-            currentElementString = a[i][b].toString();
-            result += currentElementString + " ".repeat((maskLength - currentElementString.length));
-        }
+	var comleteElement = function(element, maskLength){
+		var currentElementString = element.toString();
+		return currentElementString + " ".repeat((maskLength - currentElementString.length));
+    };
+	var calculateMaskLength = function(array){
+		var maskLength = 0;
+        array.forEach(function(row){
+            var currentRowMaskLength = Math.max.apply(null, row.map(w => w.toString().length)) + 1;
+            if(currentRowMaskLength > maskLength){
+                maskLength = currentRowMaskLength;
+            }
+        });
+		return maskLength;
+	};
+	var result = "";
+	var maskLength = calculateMaskLength(a);
+	a.forEach(function(row){
+        row.forEach(element => result += comleteElement(element, maskLength));
         result += "\n";
-    }
+	});
     console.log(result);
 };
 var result = martixMultiplication(a=[[1,2],[3,4]],b=[[5,6],[7,8]]);
