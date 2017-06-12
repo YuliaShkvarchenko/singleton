@@ -18,26 +18,23 @@ var martixMultiplication = function(a,b){
     return result;
 };
 var showMatrix = function(a){
-	var comleteElement = function(element, maskLength){
-		var currentElementString = element.toString();
-		return currentElementString + " ".repeat((maskLength - currentElementString.length));
+    var comleteElement = function(element, maskLength){
+        var currentElementString = element.toString();
+        return currentElementString + " ".repeat((maskLength - currentElementString.length));
     };
-	var calculateMaskLength = function(array){
-		var maskLength = 0;
+    var calculateMaskLength = function(array){
+        var masks = [];
         array.forEach(function(row){
-            var currentRowMaskLength = Math.max.apply(null, row.map(w => w.toString().length)) + 1;
-            if(currentRowMaskLength > maskLength){
-                maskLength = currentRowMaskLength;
-            }
+            masks.push(Math.max.apply(null, row.map(w => w.toString().length)) + 1);
         });
-		return maskLength;
-	};
-	var result = "";
-	var maskLength = calculateMaskLength(a);
-	a.forEach(function(row){
+        return Math.max.apply(null, masks);
+    };
+    var result = "";
+    var maskLength = calculateMaskLength(a);
+    a.forEach(function(row){
         row.forEach(element => result += comleteElement(element, maskLength));
         result += "\n";
-	});
+    });
     console.log(result);
 };
 var result = martixMultiplication(a=[[1,2],[3,4]],b=[[5,6],[7,8]]);
