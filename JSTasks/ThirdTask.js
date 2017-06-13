@@ -19,13 +19,12 @@ var martixMultiplication = function(a,b){
 };
 var showMatrix = function(a){
     var comleteElement = function(element, maskLength){
-        var currentElementString = element.toString();
-        return currentElementString + " ".repeat((maskLength - currentElementString.length));
+        return element + " ".repeat((maskLength - ("" + element).length));
     };
     var calculateMaskLength = function(array){
         var masks = [];
         array.forEach(function(row){
-            masks.push(Math.max.apply(null, row.map(w => w.toString().length)) + 1);
+            masks.push(Math.max.apply(null, row.map(w => ("" + w).length)) + 1);
         });
         return Math.max.apply(null, masks);
     };
