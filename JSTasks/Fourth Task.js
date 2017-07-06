@@ -2,6 +2,9 @@ var minionBuffer = function() {
   var minionHome = [];
 
   return function() {
+ minionBuffer.prototype.clean = function clean() {
+	return minionHome = [];
+ };
   if (arguments.length === 0){
      		minionHome.pop();
      }
@@ -21,13 +24,10 @@ var minionBuffer = function() {
    
       }
       return minionHome; 	
-    } 
-
-    this.clean = function() {
-    	minionHome = [];
     }
   };
 
 var myBuffer = minionBuffer();
 console.log( myBuffer("Erick") );
 console.log( myBuffer("Patrick") );
+myBuffer.clean();
