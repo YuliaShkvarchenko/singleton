@@ -1,11 +1,8 @@
 var minionBuffer = function() {
   var minionHome = [];
 
-  return function() {
- minionBuffer.prototype.clean = function clean() {
-	return minionHome = [];
- };
-  if (arguments.length === 0){
+  function updatedBuffer() {
+    if (arguments.length === 0){
      		minionHome.pop();
      }
 		for (var i = 0; i < arguments.length; i++) {
@@ -21,10 +18,13 @@ var minionBuffer = function() {
         default:
         	console.log("Wrong data type! Try again.");
         }
-   
       }
       return minionHome; 	
     }
+    updatedBuffer.clean = function(value) {
+      minionHome = [];
+    };
+    return updatedBuffer;
   };
 
 var myBuffer = minionBuffer();
