@@ -1,4 +1,4 @@
-var minionBuffer = function() {
+vvar minionBuffer = function() {
   var minionHome = [];
 
   function updatedBuffer() {
@@ -31,3 +31,4 @@ var myBuffer = minionBuffer();
 console.log( myBuffer("Erick") );
 console.log( myBuffer("Patrick") );
 myBuffer.clean();
+console.log(myBuffer());
