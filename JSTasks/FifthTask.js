@@ -1,5 +1,29 @@
 function Library() {
   var wholeLib = [];
+  /*
+	  var wholeLib = [];
+  
+  this.add = function(name) {
+    wholeLib.push(name.toString());
+    wholeLib.sort();
+    console.log( wholeLib);
+  };
+  this.getAllBooks = function(){
+    return wholeLib;
+  };
+  this.search = function(bookName){
+    var notPrivetLib = this.getAllBooks();
+    for ( var i = 0; i < notPrivetLib.length; i++){
+    if (notPrivetLib[i] === bookName) {
+    return notPrivetLib[i] ;
+    }
+    }
+  }
+}
+
+
+  
+  */
   this.add = function(name) {
     wholeLib.push(name.toString());
     wholeLib.sort();
