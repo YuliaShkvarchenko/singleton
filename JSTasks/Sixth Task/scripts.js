@@ -27,7 +27,6 @@ function createForm(){
 
 				newForm = document.createElement('iframe');
 				document.body.appendChild(newForm);
-				newForm.setAttribute("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtnPWrYyMA2uCg9Kl28kLRR7R20p0L4ogjkDNhvCeCTYSPtPyTfg");
 				break;
 			case !rightUrl:
 				alert("Вы ввели неправильный url. Попытайтесь ещё.");
