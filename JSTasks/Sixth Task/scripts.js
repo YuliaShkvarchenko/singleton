@@ -20,17 +20,20 @@ function createForm(){
 	submitButton.setAttribute("value","Check");
 	newForm.appendChild(submitButton);
 
-	submitButton.onclick = function(){
-		var rightUrl = "https://www.google.com.ua";
-		switch(inputUrl.value) {
-			case rightUrl:
+	submitButton.onsubmit = function(){
 
-				newForm = document.createElement('iframe');
+		if (inputUrl.value === "https://www.google.com.ua")
+            {
+                newForm = document.createElement('iframe');
 				document.body.appendChild(newForm);
-				break;
-			case !rightUrl:
-				alert("Вы ввели неправильный url. Попытайтесь ещё.");
-		
-		}
+                return false;
+            }
+            else if (inputUrl.value == '')
+            {
+                alert("Url adress is empty");
+                return false;
+            }
+            return true;
 	};
+
 };
