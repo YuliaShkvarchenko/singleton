@@ -22,7 +22,7 @@ function createForm(){
 
 	submitButton.onsubmit = function(){
 
-		if (inputUrl.value === "https://www.google.com.ua")
+		if (inputUrl.value == "https://www.google.com.ua")
             {
                 newForm = document.createElement('iframe');
 				document.body.appendChild(newForm);
@@ -33,7 +33,6 @@ function createForm(){
                 alert("Url adress is empty");
                 return false;
             }
-            return true;
 	};
 
 };
