@@ -33,7 +33,7 @@ function createForm(){
 	newForm.appendChild(submitButton);
 
 
-	submitButton.onsubmit = function(){
+	newForm.onsubmit = function(){
 
 	};
 
