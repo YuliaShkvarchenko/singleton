@@ -20,7 +20,7 @@ function createForm(){
 	submitButton.setAttribute("value","Check");
 	newForm.appendChild(submitButton);
 
-	submitButton.onsubmit = function(){
+	newForm.onsubmit = function(){
 
 		if (inputUrl.value == "https://www.google.com.ua")
             {
