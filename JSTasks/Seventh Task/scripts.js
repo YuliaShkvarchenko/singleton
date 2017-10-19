@@ -5,8 +5,9 @@ function createForm(){
     var newForm = document.createElement('form');
 	document.body.appendChild(newForm);
 	newForm.style.marginBottom = "10px";
-	newForm.setAttribute("action","http://jsonplaceholder.typicode.com/posts");
-	newForm.setAttribute("method","get");
+	newForm.setAttribute("action","http://jsonplaceholder.typicode.com/%20-%3E%20Resources");
+	newForm.setAttribute("method","POST");
+	newForm.setAttribute("enctype","multipart/form-data");
 
 
 	var authorInput = document.createElement('input');
@@ -14,15 +15,18 @@ function createForm(){
 	newForm.firstChild.focus();
 	authorInput.setAttribute("type","text");
 	authorInput.setAttribute("required","required");
-	authorInput.setAttribute("name","authorInput");
+	authorInput.setAttribute("name","author");
+	authorInput.setAttribute("placeholder","Write your name");
 	authorInput.style.marginBottom = "10px";
 	authorInput.style.display = "block";
 
-	var textInput = document.createElement('input');
+	var textInput = document.createElement('textarea');
 	newForm.appendChild(textInput);
-	textInput.setAttribute("type","textarea");
 	textInput.setAttribute("required","required");
-	textInput.setAttribute("name","textInput");
+	textInput.setAttribute("name","text");
+	textInput.setAttribute("placeholder","Type your text here");
+	textInput.setAttribute("cols","21");
+	textInput.setAttribute("rows","5");
 	textInput.style.marginBottom = "10px";
 	textInput.style.display = "block";
 
@@ -33,11 +37,29 @@ function createForm(){
 	newForm.appendChild(submitButton);
 
 
-	newForm.onsubmit = function(){
+	newForm.onsubmit = function(data){
+		var request = new XMLHttpRequest();
 
+		request.open("POST", "http://jsonplaceholder.typicode.com/%20-%3E%20Resources", true);
+
+		request.onreadystatechange = function(){
+			 if (request.readyState === XMLHttpRequest.DONE) {
+   				if (request.status === 200) {
+     				var response = JSON.parse(request.responseText);
+     				newForm = document.createElement('div');
+     				document.body.appendChild(newForm);
+     				newForm.insertAdjacentHTML('beforeend', response.computedString);
+   			} else {
+     			alert('There was a problem with the request.');
+   			}
+		 }
+		};
+
+		request.setRequestHeader("Content-Type", 'application/x-www-form-urlencoded');
+		request.send(JSON.stringify(data));
 	};
-
 };
+
 
 
 /* 
